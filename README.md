@@ -96,3 +96,35 @@ If a device with the given identifier already exists, the existing device will b
 
 - `404 Not Found` if the device does not exist
 - `204 No Content` on success
+
+## Lookup username and password
+
+`GET /jsontesting`
+
+**Response**
+
+- `200 OK` on success
+
+```json
+{
+   "username": "user",
+   "password": "pwd"
+}
+```
+*curl -X GET http://localhost/jsontesting*
+
+## Lookup username and password
+
+`POST /jsontesting`
+
+**Response**
+
+- `200 OK` on success
+
+```json
+{
+   "username": "user",
+   "password": "pwd"
+}
+```
+*curl -X POST http://localhost/jsontesting -H 'content-type: application/json' -d '{ "username": "user", "password": "pwd" }'*

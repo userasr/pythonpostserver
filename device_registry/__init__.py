@@ -1,6 +1,7 @@
 import markdown
 import os
 import shelve
+import json
 
 # Import the framework
 from flask import Flask, g, jsonify, request
@@ -92,15 +93,19 @@ class Device(Resource):
 
 class JsonExam(Resource):
     def get(self):
-        return {'username': 'un', 'password': pw}, 200
+	f = open("data.json", "r")
+	json_data = f.read()
+        f.close()
+        return json_data, 200
 
     def post(self):
         json_data = request.get_json(force=True)
         un = json_data['username']
         pw = json_data['password']
-        #args = parser.parse_args()
-        #un = str(args['username'])
-        #pw = str(args['password'])
+        f = open("data.json", "w")
+        f.write(json.dumps(json_data))
+	f.close()
+	print(json_data)
         return jsonify(u=un, p=pw)
 
 api.add_resource(JsonExam, '/jsontesting')
