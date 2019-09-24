@@ -1,4 +1,4 @@
-# Device Registry Service
+# Device Registry Service 
 
 ## Usage
 
@@ -127,4 +127,4 @@ If a device with the given identifier already exists, the existing device will b
    "password": "pwd"
 }
 ```
-*curl -X POST http://localhost/jsontesting -H 'content-type: application/json' -d '{ "username": "user", "password": "pwd" }'*
+*curl -X POST http://localhost/jsontesting -H 'content-type: application/json' -d '{ "username": "user", "password": "password" }'*
